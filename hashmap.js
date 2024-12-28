@@ -50,7 +50,7 @@ export default class Hashmap {
       for (const bucket of oldBuckets){
         if (bucket){
           for (const [key,value] of bucket){
-            this.set(key,value);
+            this.set(key, value, false);
           }
         }
       }
@@ -59,7 +59,7 @@ export default class Hashmap {
       const index= this.hash(key);
       const bucket = this.buckets[index];
       if (!bucket) {
-        return null; // Si no hay un bucket, no hay valor asociado
+        return null;
     }
       for (let i=0;i<bucket.length;i++){
         if(bucket[i][0]==key){
@@ -67,5 +67,28 @@ export default class Hashmap {
         }
       }
     }
-     
+    has(key){
+      if(this.get(key)==null){
+        return false;
+      }else{
+        return true;
+      }
+    }
+    remove(key){
+      const index= this.hash(key);
+      const bucket = this.buckets[index];
+      if (!bucket) {
+        return null;
+    }
+      for (let i=0;i<bucket.length;i++){
+        if(bucket[i][0]==key){
+          bucket.splice(i, 1);
+          this.size--;
+          return;
+        }
+      }
+    }
+    length(){
+      return this.capacity;
+    }
     }
