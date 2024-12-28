@@ -129,6 +129,32 @@ export default class Hashmap {
         return entries;
       }
     }
+  export class HashSet extends Hashmap{
+    set(key){
+      const index= this.hash(key);
+      if (!this.buckets[index]) {
+        this.buckets[index] = [];
+      }
+      const bucket = this.buckets[index];
+      for (const existingKey of bucket) {
+        if (existingKey === key) {
+          return; // La clave ya existe, no hacer nada
+        }
+      }
+        this.size++;
+        bucket.push(key);
+    }
+    keys(){
+      let keys = [];
+      for (const bucket of this.buckets) {
+        if (bucket) {
+          // Agregar todas las claves del bucket
+          keys.push(bucket[0]);
+        }
+      }
+      return keys;
+    }
+    }
   
     
     

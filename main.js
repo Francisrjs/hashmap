@@ -1,4 +1,5 @@
 import Hashmap from "./hashmap.js"
+import { HashSet } from "./hashmap.js";
 const test = new Hashmap() // or HashMap() if using a factory
 
 console.log("1-SET: apple color red");
@@ -47,3 +48,13 @@ console.log("9-keys:")
 console.log(test.keys())
 console.log(test.values())
 console.log(test.entries())
+
+//BONUS
+const testSet = new HashSet();
+testSet.set('apple');
+testSet.set('banana');
+testSet.set('fruit');
+testSet.set('orange');
+
+console.log("keys length:", testSet.length()); // Debería ser 4
+console.log(testSet.keys()); // Debería devolver ["apple", "banana", "fruit", "orange"]
