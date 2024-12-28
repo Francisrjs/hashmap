@@ -14,5 +14,5 @@
   * `values()`: Devuelve un array con todos los valores.
   * `entries()`: Devuelve un array de pares clave-valor.
 
-#Link:
+# Link:
 https://www.theodinproject.com/lessons/javascript-hashmap
