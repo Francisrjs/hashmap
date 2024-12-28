@@ -89,6 +89,46 @@ export default class Hashmap {
       }
     }
     length(){
-      return this.capacity;
+      return this.size;
     }
+    clear(){
+      this.buckets = new Array(this.capacity).fill(null);
+      this.size = 0; 
     }
+    keys(){
+      let keys=[];
+      for (const bucket of this.buckets) {
+        if (bucket) { 
+          for (const [key, value] of bucket) {
+            keys.push(key); 
+          }
+        }
+      }
+      return keys;
+    }
+    values(){
+        let values=[];
+        for (const bucket of this.buckets) {
+          if (bucket) { 
+            for (const [key, value] of bucket) {
+              values.push(value); 
+            }
+          }
+        }
+        return values;
+      }
+    entries(){
+        let entries=[];
+        for (const bucket of this.buckets) {
+          if (bucket) { 
+            for (const [key, value] of bucket) {
+              entries.push([value,key]); 
+            }
+          }
+        }
+        return entries;
+      }
+    }
+  
+    
+    
